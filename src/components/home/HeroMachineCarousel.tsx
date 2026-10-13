@@ -273,8 +273,8 @@ export function HeroMachineCarousel() {
           </div>
         </div>
 
-        {/* Left / Right Manual Control Buttons */}
-        <div className="absolute inset-y-0 left-3 z-30 flex items-center">
+        {/* Left / Right Manual Control Buttons (Desktop/Tablet) */}
+        <div className="hidden sm:flex absolute inset-y-0 left-3 z-30 items-center">
           <button
             onClick={handlePrev}
             type="button"
@@ -285,7 +285,7 @@ export function HeroMachineCarousel() {
           </button>
         </div>
 
-        <div className="absolute inset-y-0 right-3 z-30 flex items-center">
+        <div className="hidden sm:flex absolute inset-y-0 right-3 z-30 items-center">
           <button
             onClick={handleNext}
             type="button"
@@ -352,16 +352,19 @@ export function HeroMachineCarousel() {
                 })}
               </div>
 
-              <span className="text-[10px] text-slate-400 font-medium shrink-0">
-                Auto-scrolls • Click arrows to control
+              <span className="text-[10px] text-slate-400 font-medium shrink-0 hidden sm:inline">
+                Auto-scrolls • Click to select
+              </span>
+              <span className="text-[10px] text-slate-400 font-medium shrink-0 sm:hidden">
+                Swipe to explore
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Floating Badge 1 (Top Left Overhang) */}
-      <div className="absolute -top-4 -left-4 sm:-top-5 sm:-left-5 z-40 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-slate-100 flex items-center gap-2.5 pointer-events-none">
+      {/* Floating Badge 1 (Top Left Overhang - Desktop/Tablet) */}
+      <div className="hidden md:flex absolute -top-4 -left-4 sm:-top-5 sm:-left-5 z-40 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-slate-100 items-center gap-2.5 pointer-events-none">
         <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#FFBE0B]/20 text-[#8F6600] flex items-center justify-center shrink-0">
           <HardHat className="w-4 h-4 sm:w-5 sm:h-5" />
         </div>
@@ -371,8 +374,8 @@ export function HeroMachineCarousel() {
         </div>
       </div>
 
-      {/* Floating Badge 2 (Bottom Right Overhang) */}
-      <div className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 z-40 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-slate-100 flex items-center gap-2.5 pointer-events-none">
+      {/* Floating Badge 2 (Bottom Right Overhang - Desktop/Tablet) */}
+      <div className="hidden md:flex absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 z-40 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 shadow-xl border border-slate-100 items-center gap-2.5 pointer-events-none">
         <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#0879D1]/15 text-[#0879D1] flex items-center justify-center shrink-0">
           <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
         </div>

@@ -63,7 +63,15 @@ export function AppHeroSection({ onScrollToFeatures }: AppHeroSectionProps) {
           <div className="lg:col-span-7 flex flex-col items-start space-y-6">
             {/* Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-bold tracking-wider uppercase">
-              <Smartphone className="w-4 h-4 text-[#FFBE0B]" />
+              <div className="relative w-4 h-4 rounded-full overflow-hidden shrink-0 shadow-xs">
+                <Image
+                  src="/favicon.png"
+                  alt="Machine Wallah Icon"
+                  fill
+                  sizes="16px"
+                  className="object-contain"
+                />
+              </div>
               <span>Machine Wallah Mobile App</span>
             </div>
 
@@ -143,13 +151,13 @@ export function AppHeroSection({ onScrollToFeatures }: AppHeroSectionProps) {
           <div className="lg:col-span-5 flex justify-center">
             <div className="relative flex items-center justify-center max-w-sm sm:max-w-md w-full py-4">
               {/* Floating Back Mockup (Screen Details) */}
-              <div className="w-48 sm:w-56 aspect-[9/18.5] bg-slate-900 rounded-[2.5rem] p-2.5 shadow-2xl border-4 border-slate-700 rotate-6 translate-x-4 relative overflow-hidden transition-transform duration-300 hover:rotate-3">
-                <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-white">
+              <div className="w-36 xs:w-44 sm:w-56 aspect-[9/18.5] bg-slate-900 rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 shadow-2xl border-2 sm:border-4 border-slate-700 rotate-6 translate-x-2 sm:translate-x-4 relative overflow-hidden transition-transform duration-300 hover:rotate-3">
+                <div className="relative w-full h-full rounded-[1.6rem] sm:rounded-[2rem] overflow-hidden bg-white">
                   <Image
                     src="/images/app-screen-details.png"
                     alt="Machine Wallah mobile application equipment details view"
                     fill
-                    sizes="224px"
+                    sizes="(max-width: 640px) 176px, 224px"
                     className="object-cover object-top"
                     priority
                   />
@@ -157,8 +165,8 @@ export function AppHeroSection({ onScrollToFeatures }: AppHeroSectionProps) {
               </div>
 
               {/* Floating Front Mockup (Home Screen) */}
-              <div className="w-52 sm:w-60 aspect-[9/18.5] bg-slate-900 rounded-[2.5rem] p-2.5 shadow-2xl border-4 border-[#FFBE0B] -rotate-3 -translate-x-6 relative overflow-hidden transition-transform duration-300 hover:-rotate-1 z-10">
-                <div className="relative w-full h-full rounded-[2rem] overflow-hidden bg-white">
+              <div className="w-40 xs:w-48 sm:w-60 aspect-[9/18.5] bg-slate-900 rounded-[2rem] sm:rounded-[2.5rem] p-2 sm:p-2.5 shadow-2xl border-2 sm:border-4 border-[#FFBE0B] -rotate-3 -translate-x-4 sm:-translate-x-6 relative overflow-hidden transition-transform duration-300 hover:-rotate-1 z-10">
+                <div className="relative w-full h-full rounded-[1.6rem] sm:rounded-[2rem] overflow-hidden bg-white">
                   <Image
                     src="/images/app-screen-home.png"
                     alt="Machine Wallah mobile application actual home screen"
@@ -181,8 +189,16 @@ export function AppHeroSection({ onScrollToFeatures }: AppHeroSectionProps) {
               </div>
 
               {/* Floating Badge Top-Right */}
-              <div className="absolute -top-2 right-2 px-3 py-1.5 rounded-xl bg-white text-[#141B29] shadow-lg border border-slate-200 text-xs font-bold flex items-center gap-1.5 z-20">
-                <Sparkles className="w-3.5 h-3.5 text-[#FFBE0B]" />
+              <div className="absolute -top-2 right-2 px-3 py-1.5 rounded-xl bg-white text-[#141B29] shadow-lg border border-slate-200 text-xs font-bold flex items-center gap-2 z-20">
+                <div className="relative w-4 h-4 rounded-full overflow-hidden shrink-0">
+                  <Image
+                    src="/favicon.png"
+                    alt="MW"
+                    fill
+                    sizes="16px"
+                    className="object-contain"
+                  />
+                </div>
                 <span>Modern Mobile Experience</span>
               </div>
             </div>

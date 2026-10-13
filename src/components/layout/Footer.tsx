@@ -38,6 +38,24 @@ export function Footer() {
     (url) => Boolean(url) && url !== "#"
   );
 
+  const isServiceActive = (serviceHref: string) => {
+    if (pathname === serviceHref) return true;
+    if (pathname.startsWith(serviceHref + "/")) return true;
+    if (serviceHref === "/services/rent") {
+      return pathname === "/rent-machines" || pathname.startsWith("/services/rent");
+    }
+    if (serviceHref === "/services/transport") {
+      return pathname === "/transport" || pathname.startsWith("/services/transport");
+    }
+    if (serviceHref === "/services/buy-sell") {
+      return pathname === "/buy-sell" || pathname.startsWith("/services/buy-sell");
+    }
+    if (serviceHref === "/services/materials") {
+      return pathname === "/materials" || pathname.startsWith("/services/materials");
+    }
+    return false;
+  };
+
   return (
     <footer className="bg-[#141B29] text-white border-t border-slate-800">
       {/* Top CTA Banner inside Footer (only on inner pages) */}
@@ -86,18 +104,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Column 1: Brand Info (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            {/* Brand Logo in dedicated white card */}
+            {/* Brand Logo in dedicated white card perfectly matching logo size */}
             <Link
               href="/"
-              className="inline-flex items-center justify-center bg-white rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3 shadow-lg border border-slate-200/90 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBE0B]"
+              className="inline-flex items-center justify-center bg-white rounded-xl p-1.5 sm:p-2 shadow-md border border-slate-200/90 transition-transform duration-200 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFBE0B]"
               aria-label="Machine Wallah Home"
             >
-              <div className="relative w-[185px] sm:w-[210px] md:w-[225px] h-[58px] sm:h-[66px] md:h-[72px]">
+              <div className="relative w-[174px] sm:w-[195px] md:w-[210px] h-[58px] sm:h-[65px] md:h-[70px]">
                 <Image
                   src={SITE_CONFIG.logoPath}
                   alt="Machine Wallah — Machines | Transport | Materials"
                   fill
-                  sizes="(max-width: 640px) 185px, (max-width: 768px) 210px, 225px"
+                  sizes="(max-width: 640px) 174px, (max-width: 768px) 195px, 210px"
                   className="object-contain object-center"
                 />
               </div>
@@ -120,23 +138,37 @@ export function Footer() {
               Our Services
             </h4>
             <ul className="space-y-2.5 text-sm">
-              {NAV_SERVICES.map((service) => (
-                <li key={service.href}>
-                  <Link
-                    href={service.href}
-                    className="group inline-flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
-                  >
-                    <span
-                      className="w-1.5 h-1.5 rounded-full"
-                      style={{ backgroundColor: service.colorHex }}
-                    />
-                    <span className="group-hover:translate-x-0.5 transition-transform">
-                      {service.title}
-                    </span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400" />
-                  </Link>
-                </li>
-              ))}
+              {NAV_SERVICES.map((service) => {
+                const isActive = isServiceActive(service.href);
+                return (
+                  <li key={service.href}>
+                    <Link
+                      href={service.href}
+                      className={`active-child group inline-flex items-center gap-2 transition-colors ${
+                        isActive
+                          ? "active text-[#FFBE0B] font-bold"
+                          : "text-slate-300 hover:text-white"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      <span
+                        className="w-1.5 h-1.5 rounded-full"
+                        style={{ backgroundColor: service.colorHex }}
+                      />
+                      <span className="group-hover:translate-x-0.5 transition-transform">
+                        {service.title}
+                      </span>
+                      {isActive ? (
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FFBE0B]/20 text-[#FFBE0B] border border-[#FFBE0B]/40">
+                          Active
+                        </span>
+                      ) : (
+                        <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-slate-400" />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -146,16 +178,24 @@ export function Footer() {
               Company
             </h4>
             <ul className="space-y-2.5 text-sm">
-              {FOOTER_QUICK_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-300 hover:text-white transition-colors hover:underline inline-block"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+              {FOOTER_QUICK_LINKS.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className={`transition-colors hover:underline inline-block ${
+                        isActive
+                          ? "active text-[#FFBE0B] font-bold underline"
+                          : "text-slate-300 hover:text-white"
+                      }`}
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

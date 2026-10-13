@@ -145,7 +145,7 @@ export function ExploreServicesSection() {
           {EDITORIAL_PANELS.map((panel) => (
             <div
               key={panel.id}
-              className={`rounded-3xl bg-white text-[#141B29] border border-white ${panel.accentBg} shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden p-6 sm:p-8 lg:p-10`}
+              className={`rounded-3xl bg-white text-[#141B29] border border-white ${panel.accentBg} shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden p-4 sm:p-8 lg:p-10`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Content Side */}

@@ -136,6 +136,8 @@ const WORKFLOW_SCREENS: AppWorkflowScreen[] = [
 export function AppScreenshotGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const touchStartX = React.useRef<number | null>(null);
+  const touchEndX = React.useRef<number | null>(null);
 
   const current = WORKFLOW_SCREENS[currentIndex];
 
@@ -150,6 +152,27 @@ export function AppScreenshotGallery() {
       prev === WORKFLOW_SCREENS.length - 1 ? 0 : prev + 1
     );
   }, []);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (diff > 45) {
+        handleNext();
+      } else if (diff < -45) {
+        handlePrev();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   // Keyboard navigation
   useEffect(() => {
@@ -209,7 +232,12 @@ export function AppScreenshotGallery() {
           </div>
 
           {/* Workflow Board Display Area */}
-          <div className="relative aspect-[16/10.5] sm:aspect-[16/10] w-full bg-slate-950 flex items-center justify-center overflow-hidden group">
+          <div
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            className="relative aspect-[16/10.5] sm:aspect-[16/10] w-full bg-slate-950 flex items-center justify-center overflow-hidden group touch-pan-y"
+          >
             <Image
               src={current.image}
               alt={`${current.title} - Machine Wallah app workflow`}
@@ -223,17 +251,17 @@ export function AppScreenshotGallery() {
             <button
               onClick={handlePrev}
               aria-label="Previous Workflow"
-              className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-[#FFBE0B] hover:text-[#141B29] text-white border border-slate-700 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-lg focus:outline-none focus:ring-2 focus:ring-[#FFBE0B]"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 hover:bg-[#FFBE0B] hover:text-[#141B29] text-white border border-slate-700 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-lg focus:outline-none focus:ring-2 focus:ring-[#FFBE0B]"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             <button
               onClick={handleNext}
               aria-label="Next Workflow"
-              className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-900/80 hover:bg-[#FFBE0B] hover:text-[#141B29] text-white border border-slate-700 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-lg focus:outline-none focus:ring-2 focus:ring-[#FFBE0B]"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-slate-900/80 hover:bg-[#FFBE0B] hover:text-[#141B29] text-white border border-slate-700 flex items-center justify-center transition-all duration-200 cursor-pointer shadow-lg focus:outline-none focus:ring-2 focus:ring-[#FFBE0B]"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 

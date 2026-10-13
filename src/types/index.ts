@@ -19,6 +19,8 @@ export interface SiteConfig {
   subTagline: string;
   description: string;
   logoPath: string;
+  emblemPath: string;
+  faviconPath: string;
   contact: {
     phonePlaceholder: string;
     phoneLink: string;

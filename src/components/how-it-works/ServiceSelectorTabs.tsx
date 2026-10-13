@@ -226,7 +226,7 @@ export function ServiceSelectorTabs({
           role="tabpanel"
           id={`panel-${currentTab.id}`}
           aria-labelledby={`tab-${currentTab.id}`}
-          className="mt-8 max-w-4xl mx-auto bg-white rounded-3xl border border-white p-6 sm:p-10 shadow-2xl text-[#141B29] transition-all duration-300"
+          className="mt-8 max-w-4xl mx-auto bg-white rounded-3xl border border-white p-4 sm:p-8 md:p-10 shadow-2xl text-[#141B29] transition-all duration-300"
         >
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
             <div className="flex items-center gap-4">

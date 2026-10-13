@@ -602,7 +602,7 @@ export function ContactEnquiryForm() {
           </div>
 
           {/* Form Content */}
-          <div className="p-6 sm:p-10 space-y-8">
+          <div className="p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-8">
             {/* Action Feedback Banner */}
             {lastActionStatus && (
               <div

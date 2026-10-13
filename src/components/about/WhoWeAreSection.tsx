@@ -45,6 +45,23 @@ export function WhoWeAreSection() {
                   </div>
                 </div>
               </div>
+
+              {/* Floating Brand Emblem Badge */}
+              <div className="absolute -bottom-4 right-2 sm:-bottom-5 sm:-right-3 bg-white/95 backdrop-blur-md rounded-2xl p-2 sm:p-2.5 shadow-xl border border-slate-100 flex items-center gap-2.5 z-20">
+                <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden shadow-xs shrink-0 border border-slate-100">
+                  <Image
+                    src="/favicon.png"
+                    alt="Machine Wallah Emblem"
+                    fill
+                    sizes="40px"
+                    className="object-contain"
+                  />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-[#141B29]">Machine Wallah</div>
+                  <div className="text-[11px] text-slate-500 font-medium">4 Verticals • 1 Ecosystem</div>
+                </div>
+              </div>
             </div>
           </div>
 

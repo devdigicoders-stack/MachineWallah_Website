@@ -7,6 +7,8 @@ export const SITE_CONFIG: SiteConfig = {
   description:
     "Machine Wallah is an all-in-one platform for construction machinery rental, transportation services, machine buying & selling, and high-quality construction materials.",
   logoPath: "/images/logo.png",
+  emblemPath: "/favicon.png",
+  faviconPath: "/favicon.png",
   contact: {
     phonePlaceholder: "+91 [Contact Number To Be Provided]",
     phoneLink: "tel:+910000000000",

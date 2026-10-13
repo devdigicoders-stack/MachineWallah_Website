@@ -45,8 +45,14 @@ export function AboutPreviewSection() {
 
               {/* Dedicated Information Card directly below the image */}
               <div className="mt-3.5 sm:mt-4 p-3.5 sm:p-4 rounded-2xl bg-white text-[#141B29] border border-white shadow-xl flex items-center gap-3 sm:gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-green-50 border border-green-200 text-[#36A43B] flex items-center justify-center shrink-0">
-                  <RealVerifiedBadgeIcon className="w-5 h-5" />
+                <div className="relative w-11 h-11 rounded-xl overflow-hidden shadow-xs border border-slate-100 flex items-center justify-center shrink-0">
+                  <Image
+                    src="/favicon.png"
+                    alt="Machine Wallah Emblem"
+                    fill
+                    sizes="44px"
+                    className="object-contain"
+                  />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">

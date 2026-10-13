@@ -196,11 +196,11 @@ export function RentHero({ onScrollToCategories, onScrollToEnquiry }: RentHeroPr
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/25 z-10 pointer-events-none" />
       </div>
 
-      {/* 2. LEFT & RIGHT TAP ARROWS */}
+      {/* 2. LEFT & RIGHT TAP ARROWS (Tablets & Desktop) */}
       <button
         onClick={handlePrev}
         type="button"
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
+        className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -209,7 +209,7 @@ export function RentHero({ onScrollToCategories, onScrollToEnquiry }: RentHeroPr
       <button
         onClick={handleNext}
         type="button"
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
+        className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
         aria-label="Next slide"
       >
         <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -308,7 +308,7 @@ export function RentHero({ onScrollToCategories, onScrollToEnquiry }: RentHeroPr
         <Container size="xl">
           <div className="flex items-center justify-between gap-3 text-xs">
             {/* Left: Active Slide Info */}
-            <div className="flex items-center gap-2 truncate">
+            <div className="flex items-center gap-2 min-w-0 flex-1 mr-2 truncate">
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFBE0B] text-[#141B29] uppercase tracking-wider shrink-0">
                 Featured
               </span>

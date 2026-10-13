@@ -32,7 +32,15 @@ export function DownloadAppSection() {
           {/* Left Side: Copy & App Information (6 cols) */}
           <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-[#FFBE0B] text-xs font-bold uppercase tracking-wider">
-              <Smartphone className="w-3.5 h-3.5" />
+              <div className="relative w-4 h-4 rounded-full overflow-hidden shrink-0">
+                <Image
+                  src="/favicon.png"
+                  alt="Machine Wallah"
+                  fill
+                  sizes="16px"
+                  className="object-contain"
+                />
+              </div>
               <span>Mobile Application</span>
             </div>
 
@@ -120,28 +128,28 @@ export function DownloadAppSection() {
 
           {/* Right Side: Realistic Phone Mockup Presentation (6 cols) */}
           <div className="lg:col-span-6 relative">
-            <div className="relative mx-auto flex items-center justify-center gap-4 sm:gap-6 max-w-lg lg:max-w-none">
+            <div className="relative mx-auto flex items-center justify-center gap-2 sm:gap-6 max-w-lg lg:max-w-none">
               {/* Phone Mockup 1: Home Screen */}
-              <div className="relative w-44 sm:w-56 aspect-[9/19] rounded-[2.5rem] bg-slate-900 border-4 border-slate-700 shadow-2xl p-1.5 overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div className="relative w-full h-full rounded-[2.2rem] overflow-hidden bg-white">
+              <div className="relative w-36 xs:w-44 sm:w-56 aspect-[9/19] rounded-[2rem] sm:rounded-[2.5rem] bg-slate-900 border-2 sm:border-4 border-slate-700 shadow-2xl p-1 sm:p-1.5 overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+                <div className="relative w-full h-full rounded-[1.7rem] sm:rounded-[2.2rem] overflow-hidden bg-white">
                   <Image
                     src="/images/app-screen-home.png"
                     alt="Machine Wallah Mobile App Home Screen interface"
                     fill
-                    sizes="(max-width: 640px) 180px, 230px"
+                    sizes="(max-width: 640px) 150px, 230px"
                     className="object-cover object-top"
                   />
                 </div>
               </div>
 
               {/* Phone Mockup 2: Machine Details Screen */}
-              <div className="relative w-44 sm:w-56 aspect-[9/19] rounded-[2.5rem] bg-slate-900 border-4 border-slate-700 shadow-2xl p-1.5 overflow-hidden transform rotate-2 sm:translate-y-6 hover:rotate-0 transition-transform duration-300">
-                <div className="relative w-full h-full rounded-[2.2rem] overflow-hidden bg-white">
+              <div className="relative w-36 xs:w-44 sm:w-56 aspect-[9/19] rounded-[2rem] sm:rounded-[2.5rem] bg-slate-900 border-2 sm:border-4 border-slate-700 shadow-2xl p-1 sm:p-1.5 overflow-hidden transform rotate-2 sm:translate-y-6 hover:rotate-0 transition-transform duration-300">
+                <div className="relative w-full h-full rounded-[1.7rem] sm:rounded-[2.2rem] overflow-hidden bg-white">
                   <Image
                     src="/images/app-screen-details.png"
                     alt="Machine Wallah Mobile App Machine Details screen interface"
                     fill
-                    sizes="(max-width: 640px) 180px, 230px"
+                    sizes="(max-width: 640px) 150px, 230px"
                     className="object-cover object-top"
                   />
                 </div>

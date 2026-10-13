@@ -8,8 +8,6 @@ import {
   ChevronRight,
   ChevronDown,
   Smartphone,
-  Pause,
-  Play,
   Sparkles,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -62,7 +60,6 @@ export function HeroSection() {
   const touchEndX = useRef<number | null>(null);
 
   const total = HERO_SLIDES.length;
-  const currentSlide = HERO_SLIDES[currentIndex];
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % total);
@@ -71,14 +68,6 @@ export function HeroSection() {
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + total) % total);
   }, [total]);
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const togglePlay = () => {
-    setIsPlaying((prev) => !prev);
-  };
 
   // Auto-slide effect every 5 seconds
   useEffect(() => {
@@ -163,11 +152,11 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/25 z-10 pointer-events-none" />
       </div>
 
-      {/* 2. LEFT & RIGHT TAP ARROWS */}
+      {/* 2. LEFT & RIGHT TAP ARROWS (Tablets & Desktop) */}
       <button
         onClick={handlePrev}
         type="button"
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
+        className="hidden sm:flex absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
         aria-label="Previous background slide"
       >
         <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -176,14 +165,14 @@ export function HeroSection() {
       <button
         onClick={handleNext}
         type="button"
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md flex items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
+        className="hidden sm:flex absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-slate-950/50 hover:bg-[#FFBE0B] text-white hover:text-[#141B29] border border-white/20 hover:border-[#FFBE0B] backdrop-blur-md items-center justify-center transition-all duration-300 shadow-xl hover:scale-110 active:scale-95 focus:outline-none cursor-pointer"
         aria-label="Next background slide"
       >
         <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       {/* 3. MAIN HERO CONTENT */}
-      <div className="relative z-20 pt-4 sm:pt-5 lg:pt-6 pb-2 sm:pb-3 w-full">
+      <div className="relative z-20 pt-8 sm:pt-12 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 w-full">
         <Container size="xl">
           <div className="max-w-2xl sm:max-w-3xl">
             {/* Top Eyebrow Badge */}
@@ -197,10 +186,6 @@ export function HeroSection() {
               Har Construction Need Ka Ek{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#FFBE0B]">Smart Solution</span>
-                {/* <span
-                  aria-hidden="true"
-                  className="absolute left-0 bottom-1 w-full h-2.5 bg-[#FFBE0B]/25 -z-0 rounded-full transform -rotate-1"
-                /> */}
               </span>
               .
             </h1>
@@ -259,66 +244,6 @@ export function HeroSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#F4511E]" />
                 <span>Site Materials Direct</span>
               </div>
-            </div>
-          </div>
-        </Container>
-      </div>
-
-      {/* 4. COMPACT BOTTOM STATUS BAR (Neat & balanced gap right below the content) */}
-      <div className="relative z-20 mt-3 sm:mt-4 py-2 sm:py-2.5 border-t border-white/10 bg-black/40 backdrop-blur-md">
-        <Container size="xl">
-          <div className="flex items-center justify-between gap-3 text-xs">
-            {/* Left: Active Slide Info */}
-            <div className="flex items-center gap-2 truncate">
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#FFBE0B] text-[#141B29] uppercase tracking-wider shrink-0">
-                Featured
-              </span>
-              <span className="text-slate-200 text-xs truncate">
-                <strong className="text-white">{currentSlide.pillLabel}</strong>: {currentSlide.featuredTitle}
-              </span>
-            </div>
-
-            {/* Right: Dots, Counter, and Play/Pause */}
-            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-              {/* Pagination Dots */}
-              <div className="flex items-center gap-1.5">
-                {HERO_SLIDES.map((slide, idx) => {
-                  const isActive = idx === currentIndex;
-                  return (
-                    <button
-                      key={slide.id}
-                      onClick={() => goToSlide(idx)}
-                      type="button"
-                      className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 focus:outline-none cursor-pointer ${
-                        isActive
-                          ? "w-6 sm:w-7 bg-[#FFBE0B]"
-                          : "w-1.5 sm:w-2 bg-white/40 hover:bg-white/70"
-                      }`}
-                      aria-label={`Slide ${idx + 1}: ${slide.pillLabel}`}
-                    />
-                  );
-                })}
-              </div>
-
-              {/* Counter */}
-              <div className="text-[10px] sm:text-[11px] font-bold text-white/90">
-                {String(currentIndex + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-              </div>
-
-              {/* Play/Pause */}
-              <button
-                onClick={togglePlay}
-                type="button"
-                className="p-1 rounded-full text-slate-300 hover:text-[#FFBE0B] transition-colors focus:outline-none cursor-pointer"
-                title={isPlaying ? "Pause auto-scroll" : "Play auto-scroll"}
-                aria-label={isPlaying ? "Pause auto-scroll" : "Play auto-scroll"}
-              >
-                {isPlaying ? (
-                  <Pause className="w-3 h-3 fill-current" />
-                ) : (
-                  <Play className="w-3 h-3 fill-current" />
-                )}
-              </button>
             </div>
           </div>
         </Container>
