@@ -173,7 +173,7 @@ export function HeroSection() {
 
       {/* 3. MAIN HERO CONTENT */}
       <div className="relative z-20 pt-8 sm:pt-12 lg:pt-16 pb-10 sm:pb-14 lg:pb-16 w-full">
-        <Container size="xl">
+        <Container size="xl" className="sm:px-14 lg:px-16">
           <div className="max-w-2xl sm:max-w-3xl">
             {/* Top Eyebrow Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-semibold shadow-md mb-2">

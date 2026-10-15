@@ -10,12 +10,12 @@ export const SITE_CONFIG: SiteConfig = {
   emblemPath: "/favicon.png",
   faviconPath: "/favicon.png",
   contact: {
-    phonePlaceholder: "+91 [Contact Number To Be Provided]",
-    phoneLink: "tel:+910000000000",
-    whatsappPlaceholder: "+91 [WhatsApp Number To Be Provided]",
-    whatsappLink: "https://wa.me/?text=Hello%20Machine%20Wallah",
-    emailPlaceholder: "support@[domain-to-be-provided].com",
-    addressPlaceholder: "[Office Address, City, State - To Be Provided]",
+    phonePlaceholder: "+91 91298 95577",
+    phoneLink: "tel:+919129895577",
+    whatsappPlaceholder: "+91 91298 95577",
+    whatsappLink: "https://wa.me/919129895577?text=Hello%20Machine%20Wallah",
+    emailPlaceholder: "machinewallah291@gmail.com",
+    addressPlaceholder: "Uttar Pradesh & Delhi NCR, India",
     hours: "Mon - Sat: 9:00 AM - 7:00 PM (IST)",
   },
   appLinks: {

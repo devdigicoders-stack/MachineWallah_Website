@@ -199,9 +199,11 @@ export function buildWhatsAppUrl(
   companyNumber: string
 ): string {
   const cleanNumber = companyNumber.replace(/[\s+-]/g, "");
+  const targetNumber =
+    cleanNumber.length === 10 ? `91${cleanNumber}` : cleanNumber;
   const message = buildEnquiryTextMessage(data);
   const encodedText = encodeURIComponent(message);
-  return `https://wa.me/${cleanNumber}?text=${encodedText}`;
+  return `https://wa.me/${targetNumber}?text=${encodedText}`;
 }
 
 /**

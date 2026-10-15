@@ -90,12 +90,12 @@ export function ContactInfoCards() {
               <div className="text-sm font-bold text-slate-800 break-all">
                 {hasWhatsApp ? (
                   <a
-                    href={`https://wa.me/${BUSINESS_CONTACT.whatsappNumber.replace(/[\s+-]/g, "")}`}
+                    href={`https://wa.me/${BUSINESS_CONTACT.whatsappNumber.replace(/[\s+-]/g, "").length === 10 ? "91" + BUSINESS_CONTACT.whatsappNumber.replace(/[\s+-]/g, "") : BUSINESS_CONTACT.whatsappNumber.replace(/[\s+-]/g, "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#36A43B] hover:underline inline-flex items-center gap-1"
                   >
-                    +91 {BUSINESS_CONTACT.whatsappNumber}
+                    +91 {BUSINESS_CONTACT.whatsappNumber.replace(/^(\+91|91)/, "").replace(/(\d{5})(\d{5})/, "$1 $2").trim() || "91298 95577"}
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 ) : (

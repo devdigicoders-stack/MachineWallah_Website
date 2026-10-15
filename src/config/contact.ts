@@ -22,14 +22,12 @@ export interface BusinessContactConfig {
 }
 
 export const BUSINESS_CONTACT: BusinessContactConfig = {
-  // If company credentials are provided via environment variables, use them;
-  // otherwise keep unconfigured to strictly avoid generating fake contact details.
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "",
-  phoneNumber: process.env.NEXT_PUBLIC_PHONE_NUMBER || "",
-  enquiryEmail: process.env.NEXT_PUBLIC_ENQUIRY_EMAIL || "",
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919129895577",
+  phoneNumber: process.env.NEXT_PUBLIC_PHONE_NUMBER || "+91 91298 95577",
+  enquiryEmail: process.env.NEXT_PUBLIC_ENQUIRY_EMAIL || "machinewallah291@gmail.com",
   companyName: "Machine Wallah",
   businessHours: "Monday to Saturday: 9:00 AM – 7:00 PM (IST)",
-  officeAddress: "Uttar Pradesh & Delhi NCR, India (Official physical address to be announced)",
+  officeAddress: "Uttar Pradesh & Delhi NCR, India",
 };
 
 /**

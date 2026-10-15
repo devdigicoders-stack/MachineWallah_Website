@@ -222,9 +222,12 @@ export function Footer() {
                 <RealEmailIcon className="w-4 h-4 text-[#0879D1] shrink-0 mt-0.5" />
                 <div>
                   <div className="text-xs text-slate-400">Email Address</div>
-                  <span className="text-slate-300 font-mono text-xs">
+                  <a
+                    href={`mailto:${SITE_CONFIG.contact.emailPlaceholder}`}
+                    className="text-white hover:underline text-xs break-all"
+                  >
                     {SITE_CONFIG.contact.emailPlaceholder}
-                  </span>
+                  </a>
                 </div>
               </div>
 
